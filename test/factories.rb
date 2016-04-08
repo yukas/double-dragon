@@ -1,0 +1,2 @@
+Traver.factories do
+end
