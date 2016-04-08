@@ -5,12 +5,6 @@ class TargetGroupsTest < ActionDispatch::IntegrationTest
     get api_v1_public_target_groups_path(country_code: "BY")
     
     assert_response :success
-    assert_equal "Target Group", parsed_json_response["name"]
-  end
-  
-  private
-  
-  def parsed_json_response
-    JSON.parse(response.body)
+    assert_equal "Target Group", parsed_json_response.first["name"]
   end
 end

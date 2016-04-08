@@ -1,9 +1,9 @@
 class Api::V1::Public::LocationsController < ApplicationController
   def index
-    location = {
+    locations = [{
       id: 1, name: "Minsk", external_id: 2, secret_code: 33
-    }
+    }]
     
-    render json: location.to_json
+    render json: locations.to_json
   end
 end
