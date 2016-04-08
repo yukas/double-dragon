@@ -10,4 +10,12 @@ class ActiveSupport::TestCase
   def parsed_json_response
     JSON.parse(response.body)
   end
+  
+  def get_authorized(url)
+    get(url, nil, authorized_env)
+  end
+  
+  def authorized_env
+    Hash["HTTP_AUTHORIZATION", ActionController::HttpAuthentication::Basic.encode_credentials("admin", "secret")]
+  end
 end
