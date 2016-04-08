@@ -11,6 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160408193549) do
+
+  create_table "countries", force: :cascade do |t|
+    t.integer  "panel_provider_id"
+    t.string   "country_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "countries_target_groups", id: false, force: :cascade do |t|
+    t.integer "country_id",      null: false
+    t.integer "target_group_id", null: false
+  end
+
+  create_table "location_groups", force: :cascade do |t|
+    t.integer  "country_id"
+    t.integer  "panel_provider_id"
+    t.string   "name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "location_groups_locations", id: false, force: :cascade do |t|
+    t.integer "location_id",       null: false
+    t.integer "location_group_id", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "external_id"
+    t.string   "secret_code"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "panel_providers", force: :cascade do |t|
+    t.string   "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "target_groups", force: :cascade do |t|
+    t.integer  "external_id"
+    t.integer  "parent_id"
+    t.integer  "panel_provider_id"
+    t.string   "name"
+    t.string   "secret_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
 end
