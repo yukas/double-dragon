@@ -1,8 +1,8 @@
 class Api::V1::Public::LocationsController < ApplicationController
   def index
-    locations = [{
-      id: 1, name: "Minsk", external_id: 2, secret_code: 33
-    }]
+    country = Country.find_by_country_code(params[:country_code])
+    location_groups = country.location_groups.where(panel_provider_id: country.panel_provider_id)
+    locations = location_groups.map(&:locations).flatten
     
     render json: locations.to_json
   end

@@ -6,4 +6,10 @@ class EvaluateTargetTest < ActionDispatch::IntegrationTest
     
     assert_equal 5, parsed_json_response["price"]
   end
+  
+  def test_refuses_unauthorized_access
+    post api_v1_private_evaluate_target_path
+    
+    assert_response(401)
+  end
 end
