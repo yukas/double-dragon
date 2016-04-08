@@ -11,8 +11,12 @@ class ActiveSupport::TestCase
     JSON.parse(response.body)
   end
   
-  def get_authorized(url)
-    get(url, nil, authorized_env)
+  def get_authorized(url, params = {})
+    get(url, params, authorized_env)
+  end
+  
+  def post_authorized(url, params = {})
+    post(url, params, authorized_env)
   end
   
   def authorized_env

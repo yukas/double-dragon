@@ -7,6 +7,9 @@ class SecurityTest < ActionDispatch::IntegrationTest
     
     get_authorized api_v1_private_target_groups_path(country_code: "BY")
     assert_response(200)
+    
+    post_authorized api_v1_private_evaluate_target_path
+    assert_response(200)
   end
   
   def test_dissallow_unauthenticated_access
@@ -14,6 +17,9 @@ class SecurityTest < ActionDispatch::IntegrationTest
     assert_response(401)
     
     get api_v1_private_target_groups_path(country_code: "BY")
+    assert_response(401)
+    
+    post api_v1_private_evaluate_target_path
     assert_response(401)
   end
 end
