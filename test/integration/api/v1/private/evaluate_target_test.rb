@@ -1,10 +1,43 @@
 require "test_helper"
 
 class EvaluateTargetTest < ActionDispatch::IntegrationTest
-  def test_returns_a_price_based_on_a_logic_specific_to_each_panel_provider_used_by_a_country
-    post_authorized api_v1_private_evaluate_target_path
+  def test_returns_a_price_based_on_how_many_letters_a_can_you_find_on_the_site_divided_by_100
+    register_letter_panel_url
     
-    assert_equal 5, parsed_json_response["price"]
+    create(country: {
+      country_code: "BY",
+      panel_provider: :letter_panel_provider
+    })
+    
+    post_authorized api_v1_private_evaluate_target_path, country_code: "BY"
+    
+    assert_equal 10, parsed_json_response["price"]
+  end
+  
+  def test_returns_a_price_based_on_the_number_of_b_opening_tags_you_can_find_in_the_feed
+    register_tag_panel_url
+    
+    create(country: {
+      country_code: "BY",
+      panel_provider: :tag_panel_provider
+    })
+    
+    post_authorized api_v1_private_evaluate_target_path, country_code: "BY"
+    
+    assert_equal 10, parsed_json_response["price"]
+  end
+  
+  def test_returns_a_price_based_on_how_many_html_nodes_can_you_find_on_the_site_divided_by_100
+    register_node_panel_url
+    
+    create(country: {
+      country_code: "BY",
+      panel_provider: :node_panel_provider
+    })
+    
+    post_authorized api_v1_private_evaluate_target_path, country_code: "BY"
+    
+    assert_equal 20, parsed_json_response["price"]
   end
   
   def test_refuses_unauthorized_access

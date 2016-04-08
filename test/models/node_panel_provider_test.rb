@@ -8,7 +8,7 @@ class NodePanelProviderTest < ActiveSupport::TestCase
   end
   
   def test_calculates_price
-    FakeWeb.register_uri(:get, NodePanelProvider::SITE_URL, body: "<html><body>#{'<p><a></a></p>' * 1000}<body></html>")
+    register_node_panel_url
     
     assert_equal 20, subject.calculate_price
   end

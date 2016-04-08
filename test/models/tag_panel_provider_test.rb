@@ -8,6 +8,8 @@ class TagPanelProviderTest < ActiveSupport::TestCase
   end
   
   def test_calculates_price
+    register_tag_panel_url
+    
     assert_equal 10, subject.calculate_price
   end
 end
