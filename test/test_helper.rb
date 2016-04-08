@@ -3,6 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 FakeWeb.register_uri(:get, LetterPanelProvider::SITE_URL, body: "<body>#{'a' * 1000}<body>")
+FakeWeb.register_uri(:get, TagPanelProvider::FEED_URL, body: "\\u003cb\\u003e" * 10)
 
 class ActiveSupport::TestCase
   def parsed_json_response
