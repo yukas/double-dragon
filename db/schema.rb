@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408193549) do
+ActiveRecord::Schema.define(version: 20160408221602) do
 
   create_table "countries", force: :cascade do |t|
     t.integer  "panel_provider_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160408193549) do
     t.string   "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "type"
   end
 
   create_table "target_groups", force: :cascade do |t|
