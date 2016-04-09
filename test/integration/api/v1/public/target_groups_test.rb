@@ -15,7 +15,7 @@ class TargetGroupsTest < ActionDispatch::IntegrationTest
       name: "Target Group 2",
       panel_provider: { code: "Panel Provider 2" },
       countries: [{
-        country_code: "BY",
+        country_code: "PL",
         panel_provider: :__ref__
       }]
     })
