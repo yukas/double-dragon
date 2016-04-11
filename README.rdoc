@@ -1,3 +1,3 @@
 == Double Dragon
 
-Demonstration of public and private APIs in Rails
+Demonstration of public and private APIs in Rails and use of services.
