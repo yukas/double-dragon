@@ -1,4 +1,6 @@
-class LetterPanelProvider < PanelProvider
+require "open-uri"
+
+class LetterPriceCalculator
   SITE_URL = "http://time.com"
   
   def calculate_price

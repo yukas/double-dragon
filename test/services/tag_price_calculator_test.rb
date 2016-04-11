@@ -1,14 +1,14 @@
 require "test_helper"
 
-class LetterPanelProviderTest < ActiveSupport::TestCase
+class TagPriceCalculatorTest < ActiveSupport::TestCase
   attr_reader :subject
   
   setup do
-    @subject = LetterPanelProvider.new
+    @subject = TagPriceCalculator.new
   end
   
   def test_calculates_price
-    register_letter_panel_url
+    register_tag_price_calculator_url
     
     assert_equal 10, subject.calculate_price
   end

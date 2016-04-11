@@ -23,15 +23,15 @@ class ActiveSupport::TestCase
     Traver.create(*args)
   end
   
-  def register_letter_panel_url
-    FakeWeb.register_uri(:get, LetterPanelProvider::SITE_URL, body: "<body>#{'a' * 1000}<body>")
+  def register_letter_price_calculator_url
+    FakeWeb.register_uri(:get, LetterPriceCalculator::SITE_URL, body: "<body>#{'a' * 1000}<body>")
   end
   
-  def register_node_panel_url
-    FakeWeb.register_uri(:get, NodePanelProvider::SITE_URL, body: "<html><body>#{'<p><a></a></p>' * 1000}<body></html>")
+  def register_node_price_calculator_url
+    FakeWeb.register_uri(:get, NodePriceCalculator::SITE_URL, body: "<html><body>#{'<p><a></a></p>' * 1000}<body></html>")
   end
   
-  def register_tag_panel_url
-    FakeWeb.register_uri(:get, TagPanelProvider::FEED_URL, body: "\\u003cb\\u003e" * 10)
+  def register_tag_price_calculator_url
+    FakeWeb.register_uri(:get, TagPriceCalculator::FEED_URL, body: "\\u003cb\\u003e" * 10)
   end
 end

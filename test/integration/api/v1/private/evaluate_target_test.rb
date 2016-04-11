@@ -2,7 +2,7 @@ require "test_helper"
 
 class EvaluateTargetTest < ActionDispatch::IntegrationTest
   def test_returns_a_price_based_on_how_many_letters_a_can_you_find_on_the_site_divided_by_100
-    register_letter_panel_url
+    register_letter_price_calculator_url
     
     create(country: {
       country_code: "BY",
@@ -15,7 +15,7 @@ class EvaluateTargetTest < ActionDispatch::IntegrationTest
   end
   
   def test_returns_a_price_based_on_the_number_of_b_opening_tags_you_can_find_in_the_feed
-    register_tag_panel_url
+    register_tag_price_calculator_url
     
     create(country: {
       country_code: "BY",
@@ -28,7 +28,7 @@ class EvaluateTargetTest < ActionDispatch::IntegrationTest
   end
   
   def test_returns_a_price_based_on_how_many_html_nodes_can_you_find_on_the_site_divided_by_100
-    register_node_panel_url
+    register_node_price_calculator_url
     
     create(country: {
       country_code: "BY",

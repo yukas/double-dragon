@@ -1,6 +1,6 @@
 require "open-uri"
 
-class NodePanelProvider < PanelProvider
+class NodePriceCalculator
   SITE_URL = "http://time.com"
   
   def calculate_price

@@ -19,4 +19,20 @@ Traver.factories do
   factory :target_group_level_3, :target_group, {
     children: [:target_group]
   }
+  
+  factory :panel_provider, {
+    price_calculator_class_name: "LetterPriceCalculator"
+  }
+  
+  factory :letter_panel_provider, :panel_provider, {
+    price_calculator_class_name: "LetterPriceCalculator"
+  }
+  
+  factory :tag_panel_provider, :panel_provider, {
+    price_calculator_class_name: "TagPriceCalculator"
+  }
+  
+  factory :node_panel_provider, :panel_provider, {
+    price_calculator_class_name: "NodePriceCalculator"
+  }
 end

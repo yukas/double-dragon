@@ -1,4 +1,6 @@
-class TagPanelProvider < PanelProvider
+require "open-uri"
+
+class TagPriceCalculator
   FEED_URL = "https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=news"
   
   def calculate_price

@@ -1,5 +1,3 @@
 class PanelProvider < ActiveRecord::Base
-  def calculate_price
-    raise NotImplementedError
-  end
+  validates :price_calculator_class_name, presence: true
 end
