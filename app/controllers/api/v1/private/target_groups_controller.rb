@@ -2,8 +2,6 @@ class Api::V1::Private::TargetGroupsController < ApplicationController
   protect_with_basic_authentication
   
   def index
-    target_groups = TargetGroup.by_country_code(params[:country_code])
-    
-    render json: target_groups.to_json
+    render json: TargetGroupFinder.find_target_groups_json(params[:country_code])
   end
 end
